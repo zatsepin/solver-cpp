@@ -24,7 +24,9 @@ public:
 
 	Cell::ValueType getCellValue( SizeType row, SizeType column ) const;
 
-	void set( SizeType row, SizeType column, Cell::ValueType value );
+	const Cell::ValueArrayType& getCellPossibleValues( SizeType row, SizeType column ) const;
+
+	void setCellValue( SizeType row, SizeType column, Cell::ValueType value );
 
 	SizeType size() const;
 

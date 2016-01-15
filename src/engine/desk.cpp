@@ -41,10 +41,16 @@ Cell::ValueType Desk::getCellValue( SizeType row, SizeType column ) const
 	return cells_[ row * size_ + column ].getValue();
 }
 
-void Desk::set( SizeType row, SizeType column, Cell::ValueType value )
+const Cell::ValueArrayType& Desk::getCellPossibleValues( SizeType row, SizeType column ) const
 {
 	checkBoundaries( row, column );
-	cells_[ row * size_ + column ].set( value );
+	return cells_[ row * size_ + column ].getPossibleValues();
+}
+
+void Desk::setCellValue( SizeType row, SizeType column, Cell::ValueType value )
+{
+	checkBoundaries( row, column );
+	cells_[ row * size_ + column ].setValue( value );
 }
 
 Desk::SizeType Desk::size() const

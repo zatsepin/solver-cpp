@@ -11,14 +11,29 @@ namespace solver
 namespace test
 {
 
-class PrintCommand
+class PrintDeskCommand
 {
 public:
-	explicit PrintCommand( const engine::Desk& desk )
+	explicit PrintDeskCommand( const engine::Desk& desk )
 		: desk_( desk )
 	{}
 
 	void execute( std::ostream& os );
+
+private:
+	const engine::Desk& desk_;
+};
+
+class PrintCellCommand
+{
+public:
+	explicit PrintCellCommand( const engine::Desk& desk )
+		: desk_( desk )
+	{}
+
+	void execute( std::ostream& os,
+	              engine::Desk::SizeType row,
+	              engine::Desk::SizeType column );
 
 private:
 	const engine::Desk& desk_;
@@ -38,7 +53,9 @@ class SetValueCommand
 public:
 	static const ulong ArgumentCount = 3;
 
-	SetValueCommand( engine::Desk& desk );
+	SetValueCommand( engine::Desk& desk )
+		: desk_( desk )
+	{}
 
 	void execute( engine::Desk::SizeType row,
 	              engine::Desk::SizeType column,

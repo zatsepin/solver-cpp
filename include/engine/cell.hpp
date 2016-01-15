@@ -25,7 +25,11 @@ public:
 
 	/// @brief Set a new cell value
 	/// @param value Value to be set. If cell value is needed to be unset then parameter must be 0.
-	void set( ValueType value );
+	void setValue( ValueType value );
+
+	/// @brief Get cell possible values
+	/// @returns Current cell possible values array.
+	const ValueArrayType& getPossibleValues() const;
 
 private:
 	void fillPossibleValue();
