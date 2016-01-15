@@ -35,10 +35,10 @@ void Desk::checkBoundaries( SizeType row, SizeType column ) const
 		throw std::out_of_range("column number is out of range");
 }
 
-Cell::ValueType Desk::get( SizeType row, SizeType column ) const
+Cell::ValueType Desk::getCellValue( SizeType row, SizeType column ) const
 {
 	checkBoundaries( row, column );
-	return cells_[ row * size_ + column ].get();
+	return cells_[ row * size_ + column ].getValue();
 }
 
 void Desk::set( SizeType row, SizeType column, Cell::ValueType value )

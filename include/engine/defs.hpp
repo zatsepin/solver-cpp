@@ -13,6 +13,8 @@ namespace constants
 	const ulong MIN_CELL_VALUE = 1;
 
 	const ulong MAX_CELL_VALUE = 9;
+
+	const ulong DEFAULT_CELL_VALUE = 0;
 } // namespace constants
 
 } // namespace solver

@@ -1,5 +1,7 @@
 #include "command.hpp"
 #include <engine/desk.hpp>
+#include <engine/cell.hpp>
+#include <engine/defs.hpp>
 #include <boost/algorithm/string.hpp>
 #include <string>
 #include <iostream>
@@ -20,7 +22,11 @@ void PrintCommand::execute( std::ostream& os )
 		os << "|";
 		for( engine::Desk::SizeType column = 0; column < size; ++column )
 		{
-			os << " " << desk_.get( row, column ) << " ";
+			engine::Cell::ValueType value = desk_.getCellValue( row, column );
+			if(value == constants::DEFAULT_CELL_VALUE)
+				os << " " << " " << " ";
+			else
+				os << " " << value << " ";
 			if( (column + 1) % 3 == 0 )
 				os << "|";
 		}

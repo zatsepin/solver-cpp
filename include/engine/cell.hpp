@@ -14,16 +14,14 @@ class Cell
 public:
 	typedef unsigned long ValueType;
 
+	typedef std::set< ValueType > ValueArrayType;
+
 	/// @brief Ctor
 	Cell();
 
-	/// @brief Ctor
-	/// @param value Cell value
-	Cell( ValueType value );
-
 	/// @brief Get cell value
 	/// @returns Current cell value. 0 if cell value is undefined.
-	ValueType get() const;
+	ValueType getValue() const;
 
 	/// @brief Set a new cell value
 	/// @param value Value to be set. If cell value is needed to be unset then parameter must be 0.
@@ -34,7 +32,7 @@ private:
 
 	ValueType value_;
 
-	std::set<ValueType> possibleValues_;
+	ValueArrayType possibleValues_;
 };
 
 } // namespace engine

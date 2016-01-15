@@ -10,23 +10,21 @@ namespace engine
 
 namespace
 {
-	const Cell::ValueType DEFAULT_CELL_VALUE = 0;
+	const Cell::ValueType defaultPossibleValues[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 }
 
 Cell::Cell()
-	: value_( DEFAULT_CELL_VALUE )
-{}
-
-Cell::Cell( Cell::ValueType value )
-	: value_( value )
-{}
+	: value_( constants::DEFAULT_CELL_VALUE )
+	, possibleValues_( std::begin( defaultPossibleValues ), std::end( defaultPossibleValues ) )
+{
+}
 
 void fillPossibleValue()
 {
 
 }
 
-Cell::ValueType Cell::get() const
+Cell::ValueType Cell::getValue() const
 {
 	return value_;
 }
@@ -34,7 +32,7 @@ Cell::ValueType Cell::get() const
 void Cell::set( ValueType value )
 {
 	/// @todo: check value is placed in possible values for cell
-	if( value >= constants::MIN_CELL_VALUE && value <= constants::MAX_CELL_VALUE )
+	if( value == constants::DEFAULT_CELL_VALUE || ( value >= constants::MIN_CELL_VALUE && value <= constants::MAX_CELL_VALUE ) )
 		value_ = value;
 	else
 		throw std::out_of_range( "cell value is out of range" );

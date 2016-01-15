@@ -22,7 +22,7 @@ public:
 
 	~Desk();
 
-	Cell::ValueType get( SizeType row, SizeType column ) const;
+	Cell::ValueType getCellValue( SizeType row, SizeType column ) const;
 
 	void set( SizeType row, SizeType column, Cell::ValueType value );
 
